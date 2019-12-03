@@ -1,0 +1,96 @@
+body {
+    font-family: arial;
+		font-size: 1.3em;
+		color: maroon;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+#burger{
+  color: white;
+  background-color: black;
+  border: 0.5em dashed white;
+}
+
+#customer{
+  border: 0.5em dashed maroon;
+  padding: 0em 1em 5em;
+}
+
+button{
+  width: 30%;
+}
+button:hover {
+    background-color: pink;
+    cursor: pointer;
+}
+
+
+section{
+  margin: 0em 0.5em;
+  padding: 0em 1em 1em;
+}
+
+header{
+  margin: 0em 0.5em;
+  padding: 0em 1em 1em;
+  overflow:hidden
+}
+
+#head-image{
+  opacity: 0.6;
+  width: 100%;
+  height: auto;
+}
+
+h1{
+  font-size: 400% ;
+  position: absolute;
+  padding: 0.5em 2em 0em;
+  margin-top: -5em
+}
+
+.wrapper {
+     display: grid;
+     grid-gap: 0em;
+     grid-template-columns: 33% 33% 33%;
+ }
+
+ .box {
+     background-color: black;
+     color: #fff;
+     border-radius: 0em;
+     padding: 1em;
+     font-size: 90%;
+     text-align: center;
+
+ }
+
+ .Olive {
+     grid-column: 1;
+     grid-row: 1 / span 3;
+ }
+ .Chive {
+     grid-column: 2;
+     grid-row: 1 / span 3;
+ }
+ .Kale {
+     grid-column: 3 ;
+     grid-row: 1 / span 3;
+ }
+
+ ul{
+   text-align: left;
+ }
+
+ .burger-pic{
+   width: 100%;
+   height: auto;
+ }
+
+ .burger-pic2{
+   width: 95%;
+   height: auto;
+ }

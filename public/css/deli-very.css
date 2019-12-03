@@ -23,7 +23,7 @@ body {
 }
 
 #dots div {
-	position: absolute;
+	position:absolute;
 	background: black;
 	color: white;
 	border-radius: 10px;

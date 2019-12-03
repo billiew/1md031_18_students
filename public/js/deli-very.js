@@ -5,9 +5,13 @@
 var socket = io();
 
 var vm = new Vue({
-  el: '#dots',
+  el: '#customer',
   data: {
+    custInfo: "",
+    orderInfo: "",
+    orderDone: "",
     orders: {},
+    details: {x: 0, y: 0}
   },
   created: function () {
     socket.on('initialize', function (data) {
@@ -24,15 +28,31 @@ var vm = new Vue({
         return Math.max(last, next);
       }, 0);
       return lastOrder + 1;
+
     },
     addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
+      var infoText="";
+      var info = getTextFields();
+      for (i in info){
+        infoText = infoText+info[i]+", ";
+      }
+      this.orderDone = "ORDER CONFIRMATION";
+      this.custInfo = "Customer details: "+infoText;
+      this.orderInfo = "Order summary: "+getBurgers();
+      console.log("hellooo");
       socket.emit("addOrder", { orderId: this.getNext(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
-                              });
-    }
-  }
+                                details: { x: this.details.x,
+                                           y: this.details.y},
+                                orderItems: [getBurgers()],
+                                customerInf:infoText
+                              } );
+                            },
+
+    displayOrder: function (event) {
+        var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                      y: event.currentTarget.getBoundingClientRect().top};
+        this.details = {x: event.clientX-10 - event.currentTarget.getBoundingClientRect().left,
+                        y: event.clientY-10 - event.currentTarget.getBoundingClientRect().top }
+                                  }
+              }
 });
